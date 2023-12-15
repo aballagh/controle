@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>page de connection</title>
+ 
+</h:head>
+<h:body>
+     <div class="login-container">
+        <p:messages id="errorMessages" showDetail="true" autoUpdate="true" closable="true" />
+        
+        <h:form rendered="#{not adminBean.loggedIn}" style="background: white;  margin: auto; text-align: center; padding: auto; border-radius: auto;">
+            <h1 style="margin-bottom: auto;">Page de connection</h1>
+
+            <p:inputText id="username" value="#{adminBean.userName}" placeholder="Username" style=" margin-bottom: auto; padding: auto; border: 1px solid #ccc; border-radius: 5px;" />
+
+            <p:password id="password" value="#{adminBean.password}" placeholder="Password" style=" margin-bottom: auto; padding: auto; border: 1px solid #ccc; border-radius: 5px;" />
+
+            <p:commandButton value="Login" action="#{adminBean.login}" style="width: auto; padding: auto; border: none; background:#00FF9B ; color: black;border-radius: 5px;" />
+        </h:form>
+
+        <h:form rendered="#{adminBean.loggedIn}" style="max-width: auto; margin: auto; text-align: center; border: 1px solid #ddd; padding: 20px; border-radius: 5px;">
+            <h:outputText value="Welcome, #{adminBean.userName}!" style="display: block; margin-bottom: auto;" />
+
+            <p:commandButton value="Logout" action="#{adminBean.logout}" style=" background-color: #FF2E00; color: #FF2E00; border-radius: auto;" />
+        </h:form>
+
+    </div>
+</h:body>
+</html>
